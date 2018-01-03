@@ -106,8 +106,8 @@ namespace SmartStore.Admin.Models.Catalog
         public bool AllowCustomerReviews { get; set; }
 
         [SmartResourceDisplayName("Admin.Catalog.Products.Fields.ProductTags")]
-        public string[] ProductTags { get; set; }
-        public MultiSelectList AvailableProductTags { get; set; }
+		public string ProductTags { get; set; }
+		public IList<SelectListItem> AvailableProductTags { get; set; }
 
 		[SmartResourceDisplayName("Admin.Catalog.Products.Fields.Sku")]
 		[AllowHtml]

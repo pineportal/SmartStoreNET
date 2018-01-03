@@ -494,21 +494,12 @@ namespace SmartStore.Services.Catalog
 			Guard.NotNull(productCategory, nameof(productCategory));
 
 			_productCategoryRepository.Delete(productCategory);
-
-<<<<<<< HEAD
-            //cache
-            _requestCache.RemoveByPattern(CATEGORIES_PATTERN_KEY);
-            _requestCache.RemoveByPattern(PRODUCTCATEGORIES_PATTERN_KEY);
-
-            //event notification
-            _eventPublisher.EntityDeleted(productCategory);
-        }
-=======
+			
 			//cache
 			_requestCache.RemoveByPattern(CATEGORIES_PATTERN_KEY);
 			_requestCache.RemoveByPattern(PRODUCTCATEGORIES_PATTERN_KEY);
 		}
->>>>>>> 3.x
+
 
         public virtual IPagedList<ProductCategory> GetProductCategoriesByCategoryId(int categoryId, int pageIndex, int pageSize, bool showHidden = false)
         {
@@ -678,18 +669,10 @@ namespace SmartStore.Services.Catalog
                 throw new ArgumentNullException("productCategory");
 
             _productCategoryRepository.Insert(productCategory);
-
-<<<<<<< HEAD
-            _requestCache.RemoveByPattern(CATEGORIES_PATTERN_KEY);
-            _requestCache.RemoveByPattern(PRODUCTCATEGORIES_PATTERN_KEY);
-
-            _eventPublisher.EntityInserted(productCategory);
-        }
-=======
+			
 			_requestCache.RemoveByPattern(CATEGORIES_PATTERN_KEY);
 			_requestCache.RemoveByPattern(PRODUCTCATEGORIES_PATTERN_KEY);
 		}
->>>>>>> 3.x
 
         public virtual void UpdateProductCategory(ProductCategory productCategory)
         {
@@ -697,18 +680,10 @@ namespace SmartStore.Services.Catalog
                 throw new ArgumentNullException("productCategory");
 
             _productCategoryRepository.Update(productCategory);
-
-<<<<<<< HEAD
-            _requestCache.RemoveByPattern(CATEGORIES_PATTERN_KEY);
-            _requestCache.RemoveByPattern(PRODUCTCATEGORIES_PATTERN_KEY);
-
-            _eventPublisher.EntityUpdated(productCategory);
-        }
-=======
+			
 			_requestCache.RemoveByPattern(CATEGORIES_PATTERN_KEY);
 			_requestCache.RemoveByPattern(PRODUCTCATEGORIES_PATTERN_KEY);
 		}
->>>>>>> 3.x
 
 		public virtual IEnumerable<ICategoryNode> GetCategoryTrail(ICategoryNode node)
 		{
