@@ -93,7 +93,6 @@ namespace SmartStore.Services.Catalog
 				if (delete)
 				{
 					category.Deleted = true;
-					_eventPublisher.EntityDeleted(category);
 				}
 				else
 				{
@@ -294,8 +293,6 @@ namespace SmartStore.Services.Catalog
 			category.Deleted = true;
             UpdateCategory(category);
 
-			_eventPublisher.EntityDeleted(category);
-
 			var childCategories = GetAllCategoriesByParentCategoryId(category.Id, true);
 			DeleteAllCategories(childCategories, deleteChilds);
         }
@@ -457,11 +454,10 @@ namespace SmartStore.Services.Catalog
 
 			_categoryRepository.Insert(category);
 
-            _requestCache.RemoveByPattern(CATEGORIES_PATTERN_KEY);
-            _requestCache.RemoveByPattern(PRODUCTCATEGORIES_PATTERN_KEY);
 
-            _eventPublisher.EntityInserted(category);
-        }
+			_requestCache.RemoveByPattern(CATEGORIES_PATTERN_KEY);
+			_requestCache.RemoveByPattern(PRODUCTCATEGORIES_PATTERN_KEY);
+		}
 
         public virtual void UpdateCategory(Category category)
         {
@@ -481,11 +477,9 @@ namespace SmartStore.Services.Catalog
 
             _categoryRepository.Update(category);
 
-            _requestCache.RemoveByPattern(CATEGORIES_PATTERN_KEY);
-            _requestCache.RemoveByPattern(PRODUCTCATEGORIES_PATTERN_KEY);
-
-            _eventPublisher.EntityUpdated(category);
-        }
+			_requestCache.RemoveByPattern(CATEGORIES_PATTERN_KEY);
+			_requestCache.RemoveByPattern(PRODUCTCATEGORIES_PATTERN_KEY);
+		}
 
         public virtual void UpdateHasDiscountsApplied(Category category)
         {
@@ -501,6 +495,7 @@ namespace SmartStore.Services.Catalog
 
 			_productCategoryRepository.Delete(productCategory);
 
+<<<<<<< HEAD
             //cache
             _requestCache.RemoveByPattern(CATEGORIES_PATTERN_KEY);
             _requestCache.RemoveByPattern(PRODUCTCATEGORIES_PATTERN_KEY);
@@ -508,6 +503,12 @@ namespace SmartStore.Services.Catalog
             //event notification
             _eventPublisher.EntityDeleted(productCategory);
         }
+=======
+			//cache
+			_requestCache.RemoveByPattern(CATEGORIES_PATTERN_KEY);
+			_requestCache.RemoveByPattern(PRODUCTCATEGORIES_PATTERN_KEY);
+		}
+>>>>>>> 3.x
 
         public virtual IPagedList<ProductCategory> GetProductCategoriesByCategoryId(int categoryId, int pageIndex, int pageSize, bool showHidden = false)
         {
@@ -678,11 +679,17 @@ namespace SmartStore.Services.Catalog
 
             _productCategoryRepository.Insert(productCategory);
 
+<<<<<<< HEAD
             _requestCache.RemoveByPattern(CATEGORIES_PATTERN_KEY);
             _requestCache.RemoveByPattern(PRODUCTCATEGORIES_PATTERN_KEY);
 
             _eventPublisher.EntityInserted(productCategory);
         }
+=======
+			_requestCache.RemoveByPattern(CATEGORIES_PATTERN_KEY);
+			_requestCache.RemoveByPattern(PRODUCTCATEGORIES_PATTERN_KEY);
+		}
+>>>>>>> 3.x
 
         public virtual void UpdateProductCategory(ProductCategory productCategory)
         {
@@ -691,11 +698,17 @@ namespace SmartStore.Services.Catalog
 
             _productCategoryRepository.Update(productCategory);
 
+<<<<<<< HEAD
             _requestCache.RemoveByPattern(CATEGORIES_PATTERN_KEY);
             _requestCache.RemoveByPattern(PRODUCTCATEGORIES_PATTERN_KEY);
 
             _eventPublisher.EntityUpdated(productCategory);
         }
+=======
+			_requestCache.RemoveByPattern(CATEGORIES_PATTERN_KEY);
+			_requestCache.RemoveByPattern(PRODUCTCATEGORIES_PATTERN_KEY);
+		}
+>>>>>>> 3.x
 
 		public virtual IEnumerable<ICategoryNode> GetCategoryTrail(ICategoryNode node)
 		{
