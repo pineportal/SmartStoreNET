@@ -118,7 +118,7 @@
 
 	<script src="~/Scripts/smartstore.globalization.adapter.js"></script>
 </head>
-<body class="@Html.BodyCssClass()"@(Html.BodyId())>   
+<body class="@Html.BodyCssClass() admin"@(Html.BodyId())>   
 	@RenderBody()
 	@RenderSection("foot", required: false)
     @Html.SmartCssFiles(this.Url, ResourceLocation.Foot)

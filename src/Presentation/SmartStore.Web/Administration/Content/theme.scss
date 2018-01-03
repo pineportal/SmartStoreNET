@@ -175,8 +175,9 @@ $gray-lightest: $gray-100;
 //
 // Legacy (remove later)
 // --------------------------------------------------
-
-@import "_legacy.scss"; 
+.admin {
+	@import "_legacy.scss"; 
+}
 
 
 //
