@@ -923,7 +923,6 @@
     <Content Include="Scripts\jquery.tmpl.min.js" />
     <Content Include="Scripts\admin.globalinit.js" />
     <Content Include="Scripts\popper.js" />
-    <Content Include="Scripts\popper.min.js" />
     <Content Include="Scripts\smartstore.common.js" />
     <Content Include="Scripts\smartstore.download.js" />
     <Content Include="Scripts\smartstore.discountrules.js" />
